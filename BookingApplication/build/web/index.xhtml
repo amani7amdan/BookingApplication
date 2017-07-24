@@ -191,6 +191,12 @@
                         #{offer.hotelName}
                     </h:column>
                     <h:column>
+                        <f:facet name="header">Hotel Image URL</f:facet>
+                        <div align="center">
+                            <img src="#{offer.hotelImageUrl}" width="40px" height="40px"/>
+                        </div>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">Hotel Destination</f:facet>
                         #{offer.hotelDestination}
                     </h:column>
@@ -281,12 +287,6 @@
                     <h:column>
                         <f:facet name="header">Hotel Location</f:facet>
                         #{offer.hotelLocation}
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">Hotel Image URL</f:facet>
-                        <div align="center">
-                            <img src="#{offer.hotelImageUrl}" width="40px" height="40px"/>
-                        </div>
                     </h:column>
                     <h:column>
                         <f:facet name="header">Promotion Description</f:facet>
