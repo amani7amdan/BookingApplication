@@ -23,6 +23,6 @@ BookingApplication is designed to read hotel deals from https://offersvc.expedia
 -------------
 # * Why Java?
 -------------
-I chose to develop this application using Java programming language because I am a Java developer and I have experience in it. This task learned me a lot of things about web development, where until now I worked only on desktop applications
+I chose to develop this application using Java programming language because I am a Java developer and I have experience in it. This task learned me a lot of things about web development, where I only worked only on desktop applications
 
 
