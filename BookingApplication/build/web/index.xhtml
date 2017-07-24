@@ -1,0 +1,415 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>My Booking Site</title>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                padding: 8px;
+                font-size: 12px
+            }
+
+            th{
+                text-align: center;
+            }
+
+            td{
+                text-align: left;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+
+            .info-headers {
+                font-size: 16px;
+                font-weight: bold;
+                color: #888888;
+                text-align: left
+            }
+
+            td.layout-cells{
+                border: 0px;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1 align="center">My Booking Site</h1>
+            <table width="70%" align="center">
+                <tbody>
+                    <tr>
+                        <td class="layout-cells">
+                            <table width="100%">
+                                <tr>
+                                    <th class="info-headers" colspan="2">* User Information</th> 
+                                </tr>
+                                <tr>
+                                    <td>
+                                        User ID: <b>#{hotelOffers.userInfo.userId}</b>
+                                    </td>
+                                    <td>
+                                        Persona Type: <b>#{hotelOffers.userInfo.persona.personaType}</b>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="layout-cells">
+                            <table width="100%">
+                                <tr>
+                                    <th class="info-headers" colspan="3">* Offer Information</th> 
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Site ID: <b>#{hotelOffers.offerInfo.siteID}</b>
+                                    </td>
+                                    <td>
+                                        Language: <b>#{hotelOffers.offerInfo.language}</b>
+                                    </td>
+                                    <td>
+                                        Currency: <b>#{hotelOffers.offerInfo.currency}</b>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table width="90%" align="center">
+                <tr>
+                    <td class="layout-cells">Destination Name</td>
+                    <td class="layout-cells">Min Trip Start Date</td>
+                    <td class="layout-cells">Max Trip Start Date </td>
+                    <td class="layout-cells">Length of Stay</td>
+                    <td class="layout-cells">Min Star Rating</td>
+                    <td class="layout-cells">Max Star Rating</td>
+                    <td class="layout-cells">Min Total Rating</td>
+                    <td class="layout-cells">Max Total Rating</td>
+                    <td class="layout-cells">Min Guest Rating</td>
+                    <td class="layout-cells">Max Guest Rating</td>
+                </tr>
+                <tr>
+                    <td class="layout-cells">
+                        <h:inputText id="destinationName"
+                         title="Destination Name"
+                         value="#{hotelOffers.filter.destinationName}"
+                         maxlength="100"
+                         style="width: 90px"/>
+                    </td>
+                    <td class="layout-cells">
+                        <h:inputText id="minTripStartDate"
+                         title="Min Trip Start Date"
+                         value="#{hotelOffers.filter.minTripStartDate}"
+                         maxlength="10" 
+                         style="width: 90px"/>
+                    </td>
+                    <td class="layout-cells">
+                        <h:inputText id="maxTripStartDate"
+                         title="Max Trip Start Date"
+                         value="#{hotelOffers.filter.maxTripStartDate}"
+                         maxlength="10" 
+                         style="width: 90px"/>
+                    </td>
+                    <td class="layout-cells">
+                        <h:inputText id="lengthOfStay"
+                         title="Length of Stay"
+                         value="#{hotelOffers.filter.lengthOfStay}"
+                         maxlength="10" 
+                         style="width: 90px"/>
+                    </td>
+                    <td class="layout-cells">
+                        <h:inputText id="minStarRating"
+                         title="Min Star Rating"
+                         value="#{hotelOffers.filter.minStarRating}"
+                         maxlength="10" 
+                         style="width: 90px"/>
+                        </td>
+                    <td class="layout-cells">
+                        <h:inputText id="maxStarRating"
+                         title="Max Star Rating"
+                         value="#{hotelOffers.filter.maxStarRating}"
+                         maxlength="10" 
+                         style="width: 90px"/>
+                    </td>
+                    <td class="layout-cells">
+                        <h:inputText id="minTotalRating"
+                         title="Min Total Rating"
+                         value="#{hotelOffers.filter.minTotalRating}"
+                         maxlength="10" 
+                         style="width: 90px"/>
+                        </td>
+                    <td class="layout-cells">
+                        <h:inputText id="maxTotalRating"
+                         title="Max Total Rating"
+                         value="#{hotelOffers.filter.maxTotalRating}"
+                         maxlength="10" 
+                         style="width: 90px"/>
+                    </td>
+                    <td class="layout-cells">
+                        <h:inputText id="minGuestRating"
+                         title="Min Guest Rating"
+                         value="#{hotelOffers.filter.minGuestRating}"
+                         maxlength="10" 
+                         style="width: 90px"/>
+                        </td>
+                    <td class="layout-cells">
+                        <h:inputText id="maxGuestRating"
+                         title="Max Guest Rating"
+                         value="#{hotelOffers.filter.maxGuestRating}"
+                         maxlength="10" 
+                         style="width: 90px"/>
+                    </td>
+                    <td class="layout-cells">
+                        <h:commandButton id="getData" value="Get Data" action="#{hotelOffers.getData}"/>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <div class="info-headers" style="width: 90%;margin: 0 auto">*Offers (Count=#{hotelOffers.filteredOffers.size()})</div>
+            <div style="width: 90%;height:360px ;overflow: scroll;margin: 0 auto;border: 1px solid #dddddd;">
+                <h:dataTable value="#{hotelOffers.filteredOffers}" var="offer" style="white-space: nowrap">
+                    <h:column>
+                        <f:facet name="header">#</f:facet>
+                        #{offer.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel ID</f:facet>
+                        #{offer.hotelId}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Name</f:facet>
+                        #{offer.hotelName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Destination</f:facet>
+                        #{offer.hotelDestination}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Travel Start Date</f:facet>
+                        #{offer.travelStartDateText}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Travel End Date</f:facet>
+                        #{offer.travelEndDateText}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Length of Stay</f:facet>
+                        #{offer.lengthOfStay}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Star Rating</f:facet>
+                        #{offer.hotelStarRating}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Total Base Rate</f:facet>
+                        #{offer.hotelTotalBaseRate}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Guest Review Rating</f:facet>
+                        #{offer.hotelGuestReviewRating}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Raw Appeal Score</f:facet>
+                        #{offer.rawAppealScore}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Moving Average Score</f:facet>
+                        #{offer.movingAverageScore}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Latitude</f:facet>
+                        #{offer.hotelLatitude}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Description</f:facet>
+                        #{offer.description}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Language</f:facet>
+                        #{offer.language}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Promotion Tag</f:facet>
+                        #{offer.promotionTag}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">All Inclusive</f:facet>
+                        #{offer.allInclusive}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Long Destination</f:facet>
+                        #{offer.hotelLongDestination}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel City</f:facet>
+                        #{offer.hotelCity}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Street Address</f:facet>
+                        #{offer.hotelStreetAddress}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Car Package Score</f:facet>
+                        #{offer.carPackageScore}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Longitude</f:facet>
+                        #{offer.hotelLongitude}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Country Code</f:facet>
+                        #{offer.hotelCountryCode}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Car Package</f:facet>
+                        #{offer.carPackage}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Destination Region ID</f:facet>
+                        #{offer.hotelDestinationRegionID}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Location</f:facet>
+                        #{offer.hotelLocation}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Image URL</f:facet>
+                        <div align="center">
+                            <img src="#{offer.hotelImageUrl}" width="40px" height="40px"/>
+                        </div>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Promotion Description</f:facet>
+                        #{offer.promotionDescription}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Status Description</f:facet>
+                        #{offer.statusDescription}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Distance From User</f:facet>
+                        #{offer.distanceFromUser}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Province</f:facet>
+                        #{offer.hotelProvince}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Promotion Amount</f:facet>
+                        #{offer.promotionAmount}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Status Code</f:facet>
+                        #{offer.statusCode}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Air Attach Remaining Time</f:facet>
+                        #{offer.airAttachRemainingTime}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Last Booked Time</f:facet>
+                        #{offer.lastBookedTime}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header"># of Rooms Left</f:facet>
+                        #{offer.numberOfRoomsLeft}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header"># of People Viewing</f:facet>
+                        #{offer.numberOfPeopleViewing}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header"># of People Booked</f:facet>
+                        #{offer.numberOfPeopleBooked}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Link</f:facet>
+                        #{offer.link}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Almost Sold Out Room Type Info Collection</f:facet>
+                        #{offer.almostSoldOutRoomTypeInfoCollection}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Almost Sold Status</f:facet>
+                        #{offer.almostSoldStatus}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Air Attach Enabled</f:facet>
+                        #{offer.airAttachEnabled}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Country</f:facet>
+                        #{offer.country}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Province</f:facet>
+                        #{offer.province}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Region ID</f:facet>
+                        #{offer.regionID}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">City</f:facet>
+                        #{offer.city}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Long Name</f:facet>
+                        #{offer.longName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Total Taxes and Fees</f:facet>
+                        #{offer.hotelTotalTaxesAndFees}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">drr</f:facet>
+                        #{offer.drr}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Total Price Value</f:facet>
+                        #{offer.totalPriceValue}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Total Mandatory Taxes and Fees</f:facet>
+                        #{offer.hotelTotalMandatoryTaxesAndFees}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Currency</f:facet>
+                        #{offer.currency}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Original Price Per Night</f:facet>
+                        #{offer.originalPricePerNight}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Average Price Value</f:facet>
+                        #{offer.averagePriceValue}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Percent Saving</f:facet>
+                        #{offer.percentSavings}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Search Result URL</f:facet>
+                        <a href="#{offer.hotelSearchResultUrl}">Results</a>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Hotel Info Site URL</f:facet>
+                        <a href="#{offer.hotelInfositeUrl}">Hotel Info </a>
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </h:form>
+    </h:body>
+</html>
